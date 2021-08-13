@@ -1,0 +1,6 @@
+*.mlapp binary
+*.jpg binary
+*.tif binary
+*.mat binary
+*.xlsx binary
+*.csv binary
