@@ -1,6 +1,6 @@
 % the fifth step: Cluster visualization
 % results are shown by : T-SNE, Minimal spanning tree, Histogram charts
-% different cell clusters with different colors on all H&E Images
+% positions of each cell cluster on all H&E Images
 
 
 %% load clusters and intergreted intensity

@@ -3,11 +3,8 @@
 % c.lu@maastrichtuniversity.nl
 
 clear all
-% datapath='G:\collegues\Laura\20210616 Sethu analysis\184 RFP';
-% datapath='G:\collegues\Laura\20210616 Sethu analysis\179 MafB';
-% datapath = 'G:\collegues\Elias\210603 data for chang\mix with cd206';
-datapath = 'G:\collegues\Elias\210603 data for chang\mix with cd163';
-
+currentFolder = pwd;
+datapath = [currentFolder,filesep,'data',filesep,'mix with cd163'];
 
 addpath(genpath('fun'));
 directory = [datapath,filesep,'results',filesep];
@@ -20,7 +17,8 @@ isub = [files(:).isdir];
 fileNames={files(isub).name}';
 fileNames(ismember(fileNames,{'.','..','results'})) = [];
 
-%% step 1 : extractzip
+%% step 1 : extractzip 
+% input: .zip file
 extractzip(datapath, fileNames);
 
 %% step 2 getCellNuanFeaMat
@@ -36,14 +34,13 @@ fprintf('file name is %s', ['cellmarker_rescale_intergration_t=',num2str(t),'.ma
 
 
 %% step 5: clustering 
-k = 20;
+k = 10;
 dn = 'cosine';
 
 
 %% step 5.1: clustering 
 % use cell-nuance intensity matrix (from step 4) to get clusters by
 % k-mediods
-
 load([datapath,filesep, 'cellmarker_rescale_intergration_t=',num2str(t),'.mat']);
 fprintf('k= %d \n',k);
 [labels,~,~] = kmedoids(norm_inten, k,'Distance',dn);
