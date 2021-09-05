@@ -18,3 +18,4 @@ output:
 2, a clustering results of the cell-biomarker matrix
 3, the number of cell in each cluster
 4, visulization of clustering results: t-SNE, MST, histogram of median intensity per cluster,  positions of each cell cluster on all H&E Images
+5, the cell count per cluster, per folder(image), and per cluster per folder(image)
