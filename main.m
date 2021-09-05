@@ -30,7 +30,7 @@ run('nuancematcombination.m');
 
 %% step 4 : SAVE the intergrated cell intensities
 run('SAVEnuancematcombination.m');
-fprintf('file name is %s', ['cellmarker_rescale_intergration_t=',num2str(t),'.mat'])
+fprintf('file name is %s \n', ['cellmarker_rescale_intergration_t=',num2str(t),'.mat'])
 
 
 %% step 5: clustering 
@@ -49,6 +49,12 @@ save([datapath, filesep, dn, '_kmedoids_k=', num2str(k),'.mat'], 'labels', 'cent
 
 
 %% step 5.2: visualization
+% the number of cell per cluster is saved in 'cellcountpercluster.xlsx'
+% the number of cell per folder is saved in 'cellcountperfolder.xlsx'
+% the number of cell per cluster in each folder is saved in 'cell count per cluster in each folder.xlsx'
+% other visualization including: tsne, MST and cell location on H&E images
+% (For example , 'TP11' means the cell cluster 1 on 'TP1' image)
+
 clustername = [dn, '_kmedoids_k=', num2str(k),'.mat'];
 run('ClusteringAnalysis.m');
 
