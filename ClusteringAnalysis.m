@@ -41,7 +41,7 @@ writetable(T,[directoryresult,'cellcountperfolder.xlsx']);
 bindtable = [labels,foldername];
 for i = 1:length(nuancename)
    tablei =  tabulate(bindtable(bindtable(:,2)==nuancename{i},1));
-   output = [header; tablei];
+%    output = [header; tablei];
    T = array2table(tablei);
    T.Properties.VariableNames(1:3) = {'Cluster','count','percentage'};
    writetable(T,[directoryresult,'cell count per cluster in each folder.xlsx'],'Sheet',nuancename{i});

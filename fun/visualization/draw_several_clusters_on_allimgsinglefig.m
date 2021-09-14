@@ -39,12 +39,12 @@ image(pic_color);
 axis off
 % bb=strrep(clu_meth_name,'_','\_'); 
 
-title([plaquesname,cname]);
+title([plaquesname,'-',cname]);
 % directory = [newfolder,'\results\',foldername,filesep,clu_meth_name,filesep];
 % if ~exist(directory,'dir')
 %     mkdir(directory);
 % end
 % print(gcf,'-dpng',[directory, num2str(length(no)),' ',plaquesname, ' cluster_plaque.jpg']);
-imwrite(pic_color,[directory, plaquesname, cname,'.jpg']);
+imwrite(pic_color,[directory, plaquesname, '-',cname,'.jpg']);
 close(fig);
 end
