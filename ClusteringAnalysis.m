@@ -28,14 +28,17 @@ inten=norm_inten;
 TABLE = tabulate(labels);
 T = array2table(TABLE);
 T.Properties.VariableNames(1:3) = {'Cluster','count','percentage'};
-writetable(T,[directoryresult,'cellcountpercluster.xlsx']);
+filename = fullfile(directoryresult, 'cellcountpercluster.xlsx');
+writetable(T,filename);
+
 
 
 %% number of cell per folder
 TABLE2 = tabulate(foldername);
 T = array2table(TABLE2);
 T.Properties.VariableNames(1:3) = {'Cluster','count','percentage'};
-writetable(T,[directoryresult,'cellcountperfolder.xlsx']);
+filename = fullfile(directoryresult, 'cellcountperfolder.xlsx');
+writetable(T,filename);
 
 %% number of cell per cluster in each folder
 bindtable = [labels,foldername];
@@ -44,7 +47,8 @@ for i = 1:length(nuancename)
 %    output = [header; tablei];
    T = array2table(tablei);
    T.Properties.VariableNames(1:3) = {'Cluster','count','percentage'};
-   writetable(T,[directoryresult,'cell count per cluster in each folder.xlsx'],'Sheet',nuancename{i});
+   filename = fullfile(directoryresult, 'cell count per cluster in each folder.xlsx');
+   writetable(T,filename,'Sheet',nuancename{i});
 end
 
 

@@ -3,8 +3,13 @@
 % c.lu@maastrichtuniversity.nl
 
 clear all
+
+% you can put your data folder under 'data' 
 currentFolder = pwd;
 datapath = [currentFolder,filesep,'data',filesep,'mix with cd163'];
+
+% or set you own path, for example:
+% datapath = 'F:\downloads\New folder\mix with cd163';
 
 addpath(genpath('fun'));
 directory = [datapath,filesep,'results',filesep];
@@ -55,7 +60,7 @@ save([datapath, filesep, dn, '_kmedoids_k=', num2str(k),'.mat'], 'labels', 'cent
 % other visualization including: tsne, MST and cell location on H&E images
 % (For example , 'TP11' means the cell cluster 1 on 'TP1' image)
 
-clustername = [dn, '_kmedoids_k=', num2str(k),'.mat'];
+clustername = [dn, '_kmedoids_k=', num2str(k)];
 run('ClusteringAnalysis.m');
 
 
