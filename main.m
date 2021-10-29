@@ -8,8 +8,8 @@ clear all
 currentFolder = pwd;
 datapath = [currentFolder,filesep,'data',filesep,'mix with cd163'];
 
-% or set you own path, for example:
-% datapath = 'F:\downloads\New folder\mix with cd163';
+% or set you own path( replace the sentence above to the example below):
+% datapath = 'F:\New folder\mix with cd163'; % your own data path
 
 addpath(genpath('fun'));
 directory = [datapath,filesep,'results',filesep];
