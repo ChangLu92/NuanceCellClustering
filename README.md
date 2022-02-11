@@ -1,7 +1,16 @@
 # NuanceCellClustering
-cell clustering based on cos-kmediods clustering 
-Cell intensities are calculated based on the multispectral imaging intensities
 
+
+main_gui.m : manually registration between Nuance and H&E images
+input: 
+1. H&E image 
+2, multispectral images (raw)
+output:
+Overlaid H&E image
+
+
+main.m: cell clustering based on cos-kmediods clustering 
+Cell intensities are calculated based on the multispectral imaging intensities
 For a ROI,
 input: 
 1. H&E image (.jpg)
@@ -19,3 +28,5 @@ output:
 3, the number of cell in each cluster
 4, visulization of clustering results: t-SNE, MST, histogram of median intensity per cluster,  positions of each cell cluster on all H&E Images
 5, the cell count per cluster, per folder(image), and per cluster per folder(image)
+
+
