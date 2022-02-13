@@ -1,6 +1,5 @@
-function best_region = SlideWindowDetector( I ,Template, windowsize, step, top)
+function best_region = SlideWindowDetector( I ,Template, windowsize, step, top,core)
 [n, m] = size(I);
-
 h=windowsize(1);
 w=windowsize(2);
 wid_step = round(w/step);
@@ -33,7 +32,7 @@ end
 % [a,b]=find(MI==max(max(MI)));
 
 if isempty(gcp('nocreate'))
-    parpool('local',5);
+    parpool('local',core);
 end
 parfor ii=1:top
     region_ii=BoundingBox(r(ii),c(ii),:);
