@@ -14,7 +14,8 @@ end
 
 if nargin == 3
     for j=1:length(n)
-       figure; imagesc(msi_data_cube(:,:,n(j)));colormap jet
+       figure; imagesc(msi_data_cube(:,:,n(j)));colormap jet;
+       title(j);
     end
 end
 
