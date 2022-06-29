@@ -3,7 +3,8 @@ function h = draw_SPADE_tree(labels,centers,similarity,superlabels,color)
 sim = pdist(centers,similarity);
 sim = squareform(sim);
 G = sparse(sim);
-[mst_tree,~] = graphminspantree(G);
+% [mst_tree,~] = graphminspantree(G);
+[mst_tree,~] = minspantree(G);
 mst_tree(find(mst_tree~=0))=1;
 node_positions = radio_layout(mst_tree,centers');
 % clear the plot
