@@ -3,8 +3,7 @@ function h = draw_SPADE_tree(labels,centers,similarity,superlabels,color)
 sim = pdist(centers,similarity);
 sim = squareform(sim);
 G = sparse(sim);
-% [mst_tree,~] = graphminspantree(G);
-[mst_tree,~] = minspantree(G);
+[mst_tree,~] = graphminspantree(G);
 mst_tree(find(mst_tree~=0))=1;
 node_positions = radio_layout(mst_tree,centers');
 % clear the plot
@@ -70,11 +69,11 @@ for k=1:size(coeff,2)
 %        [hleg, hobj, hout, mout] = legend(handle_tmp, num2str(length(find(labels==unqValues(k)))),'FontSize', 12, 'Box','off', 'Position', [0.7 0.7+node_size(k)*0.02 0.15 0.2]);
 %        set(get(hobj(2), 'Children'), 'markersize', node_size(k));
 %     end
-    end
+end
 
 for k=1:size(coeff,2)
     text(coeff(1,k)+0.25, coeff(2,k), num2str(unqValues(k)), 'FontSize', 14 ,'Color','black','FontWeight','Bold','FontAngle','italic','BackgroundColor','none','Margin',1);
-%     text(coeff(1,k), coeff(2,k)+0.2, num2str(length(find(labels==unqValues(k)))), 'FontSize', 7);
+    text(coeff(1,k), coeff(2,k)+0.2, num2str(length(find(labels==unqValues(k)))), 'Color','red','FontSize', 12);
 end
 
 % create_legend_cellsize(node_size, labels, unqValues)
