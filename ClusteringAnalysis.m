@@ -1,4 +1,4 @@
-% the fifth step: Cluster visualization
+%  Cluster visualization
 % results are shown by : T-SNE, Minimal spanning tree, Histogram charts
 % positions of each cell cluster on all H&E Images
 
@@ -47,20 +47,22 @@ for i = 1:length(nuancename)
 %    output = [header; tablei];
    T = array2table(tablei);
    T.Properties.VariableNames(1:3) = {'Cluster','count','percentage'};
-   filename = fullfile(directoryresult, 'cell count per cluster in each folder.xlsx');
+   filename = fullfile(directoryresult, 'cell_count_percluster_in_each_folder.xlsx');
    writetable(T,filename,'Sheet',nuancename{i});
 end
 
 
 
 %% MST
-h = draw_SPADE_tree(labels,centers,'cosine',[],[]);
+% h = draw_SPADE_tree(labels,centers,'cosine',[],[]);
+h = draw_mst_new(labels,centers,'cosine',[],[]);
 print(gcf,'-dpng',[directoryresult,'MST.jpg']);
 
 
 %% tsne
 name = [clustername,' tsne cluster'];
 colors = jet(length(unique(labels)));
+
 figure; gscatter(tsnemat(:,1),tsnemat(:,2),labels, colors )
 % fig = draw_tsne(tsnemat,labels, []);
 print(gcf,'-dpng',[directoryresult,name,'.jpg']);
