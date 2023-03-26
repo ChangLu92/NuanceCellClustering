@@ -7,10 +7,11 @@
 nuancenameFolds = fileNames;
 nuancefolder = datapath;
 
-q = dir([nuancefolder, filesep,nuancenameFolds{1},filesep,'*.tif']);
-pic = {q.name}';
-pic = extractBefore(pic,'.tif');
-pic(ismember(pic,'HE')) = [];
+% q = dir([nuancefolder, filesep,nuancenameFolds{1},filesep,'*.tif']);
+% pic = {q.name}';
+% pic = extractBefore(pic,'.tif');
+% pic(ismember(pic,'HE')) = [];
+% pic(ismember(pic,nucleipic)) = [];
 
 numfea=length(pic);
 for jj=1:length(nuancenameFolds)
@@ -27,6 +28,7 @@ for jj=1:length(nuancenameFolds)
     aveintensity=zeros(numcell,numfea);
     pos=[];
     posroi=[];
+
     for kk=1:length(pic)
         nucleus_img_name=[jjfolder,filesep,pic{kk}, '.tif'];
         im=imread(nucleus_img_name);

@@ -1,4 +1,4 @@
-%  Cluster visualization
+% Cluster visualization
 % results are shown by : T-SNE, Minimal spanning tree, Histogram charts
 % positions of each cell cluster on all H&E Images
 
