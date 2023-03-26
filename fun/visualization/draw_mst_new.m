@@ -1,4 +1,11 @@
 function h = draw_mst_new(labels,centers,similarity,superlabels,color)
+
+% labels,
+% centers,
+% similarity,
+% superlabels
+% color
+
 sim = pdist(centers,similarity);
 sim = squareform(sim);
 G = sparse(sim);
@@ -41,8 +48,5 @@ for k=1:size(coeff,1)
 end
 
 axis off
-
-
-
 end
 
