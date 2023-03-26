@@ -14,8 +14,7 @@ A = graph(G);
 
 
 unqValues = unique(labels);
-color = distinguishable_colors(numel(unqValues));
-
+% color = distinguishable_colors(numel(unqValues));
 unq_Node_size=5:0.5:5+(length(unqValues)-1);
 num_cell=zeros(size(mst_tree.Nodes,1),1);
 for k=1:size(mst_tree.Nodes,1)
@@ -30,8 +29,6 @@ for k=1:size(mst_tree.Nodes,1)
     end
     node_size(k)=a;
 end
-
-
 
 h= plot(mst_tree,'Layout','force');
 h.NodeColor = color;
