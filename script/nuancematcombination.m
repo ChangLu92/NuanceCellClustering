@@ -31,12 +31,12 @@ for jj=1:size(mix_inten,2)
     norm_inten(:,jj) = rescale(mix_inten(:,jj),0,100);
 end
 
-biomarkername = pic;
-if(sum(ismember(biomarkername,'I_7AAD'))>0)
-    i7aad_inten = norm_inten(:,ismember(biomarkername,'I_7AAD'));
-    norm_inten(:,ismember(biomarkername,'I_7AAD'))=[];
-    biomarkername(ismember(biomarkername,'I_7AAD'))=[];
-end
+% biomarkername = pic;
+% if(sum(ismember(biomarkername,'I_7AAD'))>0)
+%     i7aad_inten = norm_inten(:,ismember(biomarkername,'I_7AAD'));
+%     norm_inten(:,ismember(biomarkername,'I_7AAD'))=[];
+%     biomarkername(ismember(biomarkername,'I_7AAD'))=[];
+% end
 
 common_idx=find(max(norm_inten,[],2)<t);
 seq=1:size(norm_inten,1);

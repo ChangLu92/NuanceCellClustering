@@ -20,6 +20,7 @@ nuancefolder = datapath;
 
 for jj=1:length(nuancenameFolds)
         jjfolder=[nuancefolder,filesep,nuancenameFolds{jj}];
+        nuancenameFolds{jj}
         nuanceimg = imread([jjfolder,filesep,'HE.jpg']);
         load([jjfolder,filesep,'cellintensity.mat']);
         I = rgb2gray(nuanceimg);
@@ -50,8 +51,8 @@ for jj=1:length(nuancenameFolds)
         
         newimg = imageHDAB(:,:,1);
 %         bw = imbinarize(newimg, graythresh(newimg));
-        bw = imbinarize(newimg, 'adaptive','ForegroundPolarity','dark','Sensitivity',0.4);
-        bw = ~bw;
+%        bw = imbinarize(newimg, 'adaptive','ForegroundPolarity','dark','Sensitivity',0.4);
+ %       bw = ~bw;
 %         figure; imshow(bw)
 
 %         mask_perim = bwperim(mask1);
@@ -78,13 +79,12 @@ for jj=1:length(nuancenameFolds)
         graynuclei = imageHDAB(:,:,3);         
         cleanimg = mask1.*graynuclei;
         
-        mask_em = imregionalmax(cleanimg,4);
+     %   mask_em = imregionalmax(cleanimg,4);
 %         figure; imshow(mask_em);
-        BW2 = bwareaopen(mask_em,2);
-        overlay2 = imoverlay(cleanimg, BW2, [.3 1 .3]);
-        imshow(overlay2)
-        
-        vec_cleanimg = cleanimg(:);
+       % BW2 = bwareaopen(mask_em,2);
+        %overlay2 = imoverlay(cleanimg, BW2, [.3 1 .3]);
+       % figure;imshow(overlay2)
+      %  vec_cleanimg = cleanimg(:);
         
 %         figure;
 %         histogram(vec_cleanimg(vec_cleanimg~=0));
@@ -108,8 +108,8 @@ for jj=1:length(nuancenameFolds)
         BW2 = imerode(cleanimg,SE); 
         bw = imbinarize(BW2,0);
 
-        figure;
-        imshowpair(bw,BW2,'montage');
+        %figure;
+       % imshowpair(bw,BW2,'montage');
 
         ki67img = imread([jjfolder,filesep,ki67pic,'.tif']);
         bw_KI67 = imbinarize(ki67img, 0.2);

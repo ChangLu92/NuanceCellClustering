@@ -7,11 +7,11 @@
 nuancenameFolds = fileNames;
 nuancefolder = datapath;
 
-% q = dir([nuancefolder, filesep,nuancenameFolds{1},filesep,'*.tif']);
-% pic = {q.name}';
-% pic = extractBefore(pic,'.tif');
-% pic(ismember(pic,'HE')) = [];
-% pic(ismember(pic,nucleipic)) = [];
+q = dir([nuancefolder, filesep,nuancenameFolds{1},filesep,'*.tif']);
+biomarkername = {q.name}';
+biomarkername = extractBefore(biomarkername,'.tif');
+biomarkername(ismember(biomarkername,'HE')) = [];
+biomarkername(ismember(biomarkername,nucleipic)) = [];
 
 numfea=length(pic);
 for jj=1:length(nuancenameFolds)
@@ -103,9 +103,9 @@ for jj=1:length(nuancenameFolds)
     aveintensity(idx,:)=[];
     
     filename= [jjfolder,filesep,'cellintensity'];
-    save([filename,'.mat'],'aveintensity','pic','pos','posroi');
+    save([filename,'.mat'],'aveintensity','biomarkername','pos','posroi');
     T = array2table(aveintensity);
-    T.Properties.VariableNames = matlab.lang.makeValidName(pic);
+    T.Properties.VariableNames = matlab.lang.makeValidName(biomarkername);
     writetable(T,[filename,'.xls']);
 end
 sprintf('getCellNuanFeaMat is done!')
