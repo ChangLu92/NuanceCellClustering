@@ -1,6 +1,10 @@
 function draw_several_clusters_on_allimgsinglefig(labels,plaquesname,nuancename, no, mix_pos,begin_idx,newfolder,directory,color,cname)
 global clr
-% no is a cell
+
+if iscell(labels)
+    labels = string(labels);
+end
+
 begin_idx=[begin_idx;length(labels)+1];
 
 idx = find(strcmp(nuancename, plaquesname));

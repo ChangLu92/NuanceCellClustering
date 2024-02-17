@@ -18,7 +18,7 @@ unqValues = unique(labels);
 if( isempty(color))
   color = distinguishable_colors(numel(unqValues));
 end
-unq_Node_size=5:0.5:5+(length(unqValues)-1);
+unq_Node_size=4:0.3:4+(length(unqValues)-1);
 num_cell=zeros(size(mst_tree.Nodes,1),1);
 for k=1:size(mst_tree.Nodes,1)
     num_cell(k)=length(find(labels==unqValues(k)));
@@ -36,7 +36,7 @@ end
 h= plot(mst_tree,'Layout','force');
 h.NodeColor = color;
 h.MarkerSize = node_size;
-h.NodeFontSize = 13;
+h.NodeFontSize = 10;
 
 coeff = zeros(size(mst_tree.Nodes,1),2);
 coeff(:,1) = h.XData;

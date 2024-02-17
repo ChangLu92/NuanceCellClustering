@@ -1,4 +1,4 @@
-function draw_Polar_fig(labels,centers,markername,filename,supername)
+function draw_Polar_fig(labels,centers,markername,filename)
 [num_c,num_f] = size(centers);
 % centers=centers.*1000;
 % [centers,PS] = mapminmax(centers,0,100);
@@ -12,7 +12,7 @@ row =  ceil(sqrt(num_c));
 
 theta = 2*pi/num_f;
 color = distinguishable_colors(numel(1:num_f));
-% bb=strrep(clu_meth_name,'_','\_'); 
+markername=strrep(markername,'_','\_'); 
 
 
 figure(num_c);  % define figure
@@ -35,11 +35,12 @@ for ii = 1: num_c
     ax.RTickLabel= rt/10;
 %     ax.ThetaTickLabel = markername;
     ax.FontSize = 6;    
-    if isempty(supername)
-        n = num2str(unqValues(ii));
-    else
-        n= supername{ii};
-    end   
+%    if isempty(supername)
+%        n = num2str(unqValues(ii));
+%    else
+%        n= supername{ii};
+ %   end   
+    n= unqValues{ii};
     ax.Title.String = n ;
     ax.Title.FontSize = 10;
     hold off;
